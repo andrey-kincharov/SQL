@@ -1,0 +1,36 @@
+Задачи 
+1) Вывести названия и стоимость печенек дороже 900;
+
+select c_name, c_price
+from cookies
+where c_price > 900;
+
+2) Вывести названия и цвет начинок для которых заполнена цена;
+
+select f_name, f_color 
+from filling
+where f_price is not null;
+
+3) Отсортировать печеньки цене, вывести название и цену;
+
+select c_name, c_price
+from cookies
+order by c_price asc;
+
+4) Вывести только коричневые начинки;
+
+select f_name 
+from filling
+where f_color like '%коричневый%'; 
+
+5) Вывести только уникальные сочетания названия и цены печенек;
+
+select distinct c_name, c_price
+from cookies;
+
+6) Вывести наименование печенек, цену печенек, наименование начинки, цвет начинки, цену печенек БЕЗ цены начинки.
+
+select c_name, c_price, f_name, f_color, (c_price - f_price)
+from cookies
+join filling
+on filling_id = f_id;

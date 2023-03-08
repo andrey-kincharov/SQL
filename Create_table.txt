@@ -1,0 +1,31 @@
+create table cookies(
+c_id int auto_increment primary key,
+c_name varchar(255) not null,
+filling_id int,
+foreign key (filling_id) references filling(f_id),
+c_price int not null
+);
+
+insert into cookies (c_name, filling_id, c_price) values('Печеньки 1', 1, 1000),
+('Печеньки 1', 5, 999),
+('Печеньки 1', 1, 800),
+('Печеньки 2', null, 1001),
+('Печеньки 3', 5, 1000),
+('Печеньки 4', 2, 2000),
+('Печеньки 5', 3, 900),
+('Печеньки 3', 5, 1000);
+
+
+create table filling(
+f_id int auto_increment primary key,
+f_name varchar(255),
+f_color varchar(255),
+f_price int
+);
+
+insert into filling (f_name, f_color, f_price) values('орехи', 'коричневый', 100),
+('шоколад', 'тоже коричневый', 9),
+('карамель', null, null),
+('изюм', 'фиолетовый', 101),
+('джем', 'алый', null),
+('перец', 'красный', 1000);
